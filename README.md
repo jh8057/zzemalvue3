@@ -1,6 +1,10 @@
 # zzemalvue3
 - Try Vue3 + Vuex + Ts + jest + PWA + AWS
 
+## TODO
+- get Store data
+- make svg action
+
 ## Project setup
 ```
 npm install
