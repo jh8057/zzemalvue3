@@ -4,7 +4,11 @@
 ## TODO
 - get Store data
 - make svg action
+- use setup
 
+## Reference
+- vue3 : [link](https://v3.ko.vuejs.org/guide/migration/introduction.html)
+- components api : [link](https://v3.ko.vuejs.org/ko-KR/guide/composition-api-introduction.html)
 ## Project setup
 ```
 npm install
