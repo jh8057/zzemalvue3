@@ -2,7 +2,8 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/splash">splash</router-link>
+    <router-link to="/splash">splash</router-link> |
+    <router-link to="/setup">setup</router-link>
   </nav>
   <router-view />
 </template>

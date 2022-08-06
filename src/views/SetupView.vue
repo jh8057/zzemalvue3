@@ -1,4 +1,10 @@
-<template></template>
+<template>
+  <div>
+    <h1>Setup</h1>
+    <button @click="increaseCnt">cnt</button>
+    {{ cnt }}
+  </div>
+</template>
 
 <script lang="ts">
 import { ref, onMounted } from "vue";
@@ -16,7 +22,7 @@ export default {
       cnt.value++;
     };
 
-    return { increaseCnt };
+    return { increaseCnt, cnt };
   },
 };
 </script>

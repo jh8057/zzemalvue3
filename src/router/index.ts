@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SplashView from '../views/SplashView.vue'
+import SetupView from '../views/SetupView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -20,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/splash',
     name: 'splash',
     component: ()=> import('../views/SplashView.vue')
+  },
+  {
+    path: '/setup',
+    name: 'setup',
+    component: ()=> import('../views/SetupView.vue')
   },
 ]
 
