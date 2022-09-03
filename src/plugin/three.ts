@@ -1,9 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
 //control camera on Web
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-
 export default class Experience {
     canvas: any;
 
@@ -25,38 +23,63 @@ export default class Experience {
         renderer.render(scene, camera);
 
         //light
-        const poinLight = new THREE.PointLight(0xffffff);
-        poinLight.position.set(15, 5, 5);
+        // const poinLight = new THREE.PointLight(0xffffff);
+        // poinLight.position.set(15, 5, 5);
 
-        const ambientLight = new THREE.AmbientLight(0xffffff);
-        scene.add(poinLight, ambientLight);
+        // const ambientLight = new THREE.AmbientLight(0xffffff);
+        // scene.add(poinLight, ambientLight);
 
-        const lightHelper = new THREE.PointLightHelper(poinLight);
-        const gridHelper = new THREE.GridHelper(200, 50);
-        scene.add(lightHelper, gridHelper);
+        // const lightHelper = new THREE.PointLightHelper(poinLight);
+        // const gridHelper = new THREE.GridHelper(200, 50);
+        // scene.add(lightHelper, gridHelper);
 
-        const controls = new OrbitControls(camera, renderer.domElement);
+        // const controls = new OrbitControls(camera, renderer.domElement);
 
         //make torus
-        const geometry = new THREE.TorusGeometry(10, 3, 35, 100);
-        const material = new THREE.MeshStandardMaterial({ color: 0x44a88 }); //light apply to standardMaterial
-        const torus = new THREE.Mesh(geometry, material);
+        // const geometry = new THREE.TorusGeometry(10, 3, 35, 100);
+        // const material = new THREE.MeshStandardMaterial({ color: 0x44a88 }); //light apply to standardMaterial
+        // const torus = new THREE.Mesh(geometry, material);
 
-        scene.add(torus);
+        // scene.add(torus);
         // // scene.background = new THREE.Color(0xffffff);
 
-        function animate() {
-            requestAnimationFrame(animate);
+        // Instantiate a loader
+        const loader = new GLTFLoader();
 
-            //animation
-            torus.rotation.x += 0.01;
-            torus.rotation.y += 0.01;
-            torus.rotation.z += 0.01;
+        // Load a glTF resource
+        loader.load(
+            // resource URL
+            'assets/monitor.gltf',
+            // called when the resource is loaded
+            function (gltf) {
+                scene.add(gltf.scene);
+                function animate() {
+                    requestAnimationFrame(animate);
 
-            renderer.render(scene, camera);
-        }
+                    //animation
+                    // torus.rotation.x += 0.01;
+                    // torus.rotation.y += 0.01;
+                    // torus.rotation.z += 0.01;
 
-        animate();
+                    renderer.render(scene, camera);
+                }
+
+                animate();
+            }
+        );
+
+        // function animate() {
+        //     requestAnimationFrame(animate);
+
+        //     //animation
+        //     // torus.rotation.x += 0.01;
+        //     // torus.rotation.y += 0.01;
+        //     // torus.rotation.z += 0.01;
+
+        //     renderer.render(scene, camera);
+        // }
+
+        // animate();
     }
 }
 
