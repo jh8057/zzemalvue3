@@ -49,7 +49,9 @@ export default class Experience {
         // Load a glTF resource
         loader.load(
             // resource URL
-            'assets/monitor.gltf',
+            // require('../../public/blender/cub.gltf'),
+            require('../assets/monitor.gltf'),
+            // 'dist/blender/monitor.gltf',
             // called when the resource is loaded
             function (gltf) {
                 scene.add(gltf.scene);
