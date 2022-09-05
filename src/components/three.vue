@@ -2,7 +2,6 @@
     <div>
         <h1>Three.js</h1>
         <main>
-            <h2>contents</h2>
             <div class="experience">
                 <canvas class="experience-canvas"></canvas>
             </div>

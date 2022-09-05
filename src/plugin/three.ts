@@ -23,25 +23,26 @@ export default class Experience {
         renderer.render(scene, camera);
 
         //light
-        // const poinLight = new THREE.PointLight(0xffffff);
-        // poinLight.position.set(15, 5, 5);
+        const poinLight = new THREE.PointLight(0xae9366, 7, 20);
+        poinLight.position.set(4.4, 6.8, 0.2);
 
-        // const ambientLight = new THREE.AmbientLight(0xffffff);
+        // const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+        scene.add(poinLight);
         // scene.add(poinLight, ambientLight);
 
         // const lightHelper = new THREE.PointLightHelper(poinLight);
         // const gridHelper = new THREE.GridHelper(200, 50);
         // scene.add(lightHelper, gridHelper);
 
-        // const controls = new OrbitControls(camera, renderer.domElement);
+        const controls = new OrbitControls(camera, renderer.domElement);
 
-        //make torus
-        // const geometry = new THREE.TorusGeometry(10, 3, 35, 100);
-        // const material = new THREE.MeshStandardMaterial({ color: 0x44a88 }); //light apply to standardMaterial
-        // const torus = new THREE.Mesh(geometry, material);
+        // // make torus
+        const geometry = new THREE.TorusGeometry(20, 2, 35, 100);
+        const material = new THREE.MeshStandardMaterial({ color: 0x44a88 }); //light apply to standardMaterial
+        const torus = new THREE.Mesh(geometry, material);
 
-        // scene.add(torus);
-        // // scene.background = new THREE.Color(0xffffff);
+        scene.add(torus);
+        // scene.background = new THREE.Color(0xffffff);
 
         // Instantiate a loader
         const loader = new GLTFLoader();
@@ -49,9 +50,7 @@ export default class Experience {
         // Load a glTF resource
         loader.load(
             // resource URL
-            // require('../../public/blender/cub.gltf'),
-            require('../assets/monitor.gltf'),
-            // 'dist/blender/monitor.gltf',
+            '/blender/decktop.gltf',
             // called when the resource is loaded
             function (gltf) {
                 scene.add(gltf.scene);
@@ -59,9 +58,9 @@ export default class Experience {
                     requestAnimationFrame(animate);
 
                     //animation
-                    // torus.rotation.x += 0.01;
-                    // torus.rotation.y += 0.01;
-                    // torus.rotation.z += 0.01;
+                    torus.rotation.x += 0.01;
+                    torus.rotation.y += 0.01;
+                    torus.rotation.z += 0.01;
 
                     renderer.render(scene, camera);
                 }
