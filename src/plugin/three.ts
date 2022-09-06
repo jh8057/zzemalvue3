@@ -18,7 +18,9 @@ export default class Experience {
         });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.position.setZ(40);
+        camera.position.setZ(10);
+        camera.position.setY(10);
+        camera.position.setX(5);
 
         renderer.render(scene, camera);
 
