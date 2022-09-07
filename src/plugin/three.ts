@@ -25,22 +25,25 @@ export default class Experience {
         renderer.render(scene, camera);
 
         //light
-        const poinLight = new THREE.PointLight(0xae9366, 7, 20);
+        const poinLight = new THREE.PointLight(0xae9366, 3, 20);
         poinLight.position.set(4.4, 6.8, 0.2);
 
+        const poinLight2 = new THREE.PointLight(0xffffff, 2, 30);
+        poinLight2.position.set(-1, 8, -18);
+
         // const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-        scene.add(poinLight);
+        scene.add(poinLight, poinLight2);
         // scene.add(poinLight, ambientLight);
 
-        // const lightHelper = new THREE.PointLightHelper(poinLight);
+        // const lightHelper = new THREE.PointLightHelper(poinLight2);
         // const gridHelper = new THREE.GridHelper(200, 50);
         // scene.add(lightHelper, gridHelper);
 
         const controls = new OrbitControls(camera, renderer.domElement);
 
         // // make torus
-        const geometry = new THREE.TorusGeometry(20, 2, 35, 100);
-        const material = new THREE.MeshStandardMaterial({ color: 0x44a88 }); //light apply to standardMaterial
+        const geometry = new THREE.TorusGeometry(28, 2, 55, 100);
+        const material = new THREE.MeshStandardMaterial({ color: 0xae9366 }); //light apply to standardMaterial
         const torus = new THREE.Mesh(geometry, material);
 
         scene.add(torus);
@@ -52,7 +55,7 @@ export default class Experience {
         // Load a glTF resource
         loader.load(
             // resource URL
-            '/blender/decktop.gltf',
+            '/blender/mountain_deck.gltf',
             // called when the resource is loaded
             function (gltf) {
                 scene.add(gltf.scene);
