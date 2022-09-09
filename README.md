@@ -9,25 +9,10 @@
 ## Reference
 - vue3 : [link](https://v3.ko.vuejs.org/guide/migration/introduction.html)
 - components api : [link](https://v3.ko.vuejs.org/ko-KR/guide/composition-api-introduction.html)
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
+## Three.js
+- Reference : [link](https://www.youtube.com/watch?v=xJAfLdUgdc4&list=PLjcjAqAnHd1EIxV4FSZIiJZvsdrBc1Xho)
+- perpective camera : 가깝고 먼거(깊이)를 화면에서 나타내준다.
+- Ortographic camera : 깊이랑 상관없이 화면에 나타난다.
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
