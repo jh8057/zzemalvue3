@@ -2,6 +2,11 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 //control camera on Web
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { AxesHelper } from 'three';
+import backgroundImg from '../assets/space.jpeg';
+import sun from '../assets/sun.jpeg';
+import mirrorball from '../assets/mirror.jpeg';
+import water from '../assets/water.jpeg';
 export default class Experience {
     canvas: any;
 
@@ -22,6 +27,8 @@ export default class Experience {
         camera.position.setY(10);
         camera.position.setX(5);
 
+        renderer.shadowMap.enabled = true;
+
         renderer.render(scene, camera);
 
         //light
@@ -35,19 +42,47 @@ export default class Experience {
         scene.add(poinLight, poinLight2);
         // scene.add(poinLight, ambientLight);
 
+        // helpers
         // const lightHelper = new THREE.PointLightHelper(poinLight2);
         // const gridHelper = new THREE.GridHelper(200, 50);
         // scene.add(lightHelper, gridHelper);
+        // const axeHelper = new THREE.AxesHelper(5);
+        // scene.add(axeHelper);
 
         const controls = new OrbitControls(camera, renderer.domElement);
+
+        const textureLoader = new THREE.TextureLoader();
+        scene.background = textureLoader.load(backgroundImg);
 
         // // make torus
         const geometry = new THREE.TorusGeometry(28, 2, 55, 100);
         const material = new THREE.MeshStandardMaterial({ color: 0xae9366 }); //light apply to standardMaterial
         const torus = new THREE.Mesh(geometry, material);
+        // torus.castShadow = true;
 
         scene.add(torus);
         // scene.background = new THREE.Color(0xffffff);
+
+        // // make Sphere
+        const sphereGeometry = new THREE.SphereGeometry(4);
+        const sphereMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, wireframe: false, map: textureLoader.load(water) }); //light apply to standardMaterial
+        const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+        sphere.position.set(0, 10, -10);
+        // torus.castShadow = true;
+
+        //make plane
+        const planeGeometry = new THREE.PlaneGeometry(30, 30);
+        const splaneMaterial = new THREE.MeshStandardMaterial({ color: 0xae9366 }); //light apply to standardMaterial
+        const plane = new THREE.Mesh(planeGeometry, splaneMaterial);
+        plane.rotation.x = -0.5 * Math.PI;
+        // plane.receiveShadow = true;
+
+        scene.add(sphere, plane);
+        // scene.background = new THREE.Color(0xffffff);
+
+        //animation
+        let step = 0;
+        let speed = 0.01;
 
         // Instantiate a loader
         const loader = new GLTFLoader();
@@ -66,6 +101,9 @@ export default class Experience {
                     torus.rotation.x += 0.01;
                     torus.rotation.y += 0.01;
                     torus.rotation.z += 0.01;
+
+                    step += speed;
+                    sphere.position.x = 3 * Math.sin(step);
 
                     renderer.render(scene, camera);
                 }
