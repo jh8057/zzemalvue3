@@ -80,6 +80,16 @@ export default class Experience {
         scene.add(sphere, plane);
         // scene.background = new THREE.Color(0xffffff);
 
+        //mouse Click
+        const mousePosition = new THREE.Vector2();
+
+        window.addEventListener('mousemove', function (e) {
+            mousePosition.x = (e.clientX / window.innerWidth) * 2 - 1;
+            mousePosition.y = (e.clientY / window.innerHeight) * 2 - 1;
+        });
+
+        const rayCaster = new THREE.Raycaster();
+
         //animation
         let step = 0;
         let speed = 0.01;
@@ -101,6 +111,10 @@ export default class Experience {
                     torus.rotation.x += 0.01;
                     torus.rotation.y += 0.01;
                     torus.rotation.z += 0.01;
+
+                    //ray
+                    rayCaster.setFromCamera(mousePosition, camera);
+                    const intersects = rayCaster.intersectObjects(scene.children);
 
                     step += speed;
                     sphere.position.x = 3 * Math.sin(step);
