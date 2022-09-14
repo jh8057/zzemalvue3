@@ -43,9 +43,10 @@ export default class Experience {
         // scene.add(poinLight, ambientLight);
 
         // helpers
-        // const lightHelper = new THREE.PointLightHelper(poinLight2);
+        // const lightHelper = new THREE.PointLightHelper(poinLight);
+        // const lightHelper2 = new THREE.PointLightHelper(poinLight2);
         // const gridHelper = new THREE.GridHelper(200, 50);
-        // scene.add(lightHelper, gridHelper);
+        // scene.add(lightHelper, lightHelper2, gridHelper);
         // const axeHelper = new THREE.AxesHelper(5);
         // scene.add(axeHelper);
 
@@ -80,6 +81,7 @@ export default class Experience {
         scene.add(sphere, plane);
         // scene.background = new THREE.Color(0xffffff);
 
+        const sphereID = sphere.id;
         //mouse Click
         const mousePosition = new THREE.Vector2();
 
@@ -115,6 +117,13 @@ export default class Experience {
                     //ray
                     rayCaster.setFromCamera(mousePosition, camera);
                     const intersects = rayCaster.intersectObjects(scene.children);
+                    // console.log(intersects);
+
+                    for (let i = 0; i < intersects.length; i++) {
+                        if (intersects[i].object.id === sphereID) {
+                            ((intersects[i].object as THREE.Mesh).material as THREE.MeshStandardMaterial).color.set(0xff0000);
+                        }
+                    }
 
                     step += speed;
                     sphere.position.x = 3 * Math.sin(step);
