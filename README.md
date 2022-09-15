@@ -16,3 +16,6 @@
 - Ortographic camera : 깊이랑 상관없이 화면에 나타난다.
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## graphQL
+- ref : [link](https://www.apollographql.com/docs/intro/platform)
