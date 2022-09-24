@@ -10,7 +10,8 @@
 
         <div class="info">
             name : {{ name }}<input v-model="name" /><br />
-            age : {{ age }}<input v-model="age" />
+            age : {{ age }}<input v-model="age" /><button @click="upAge">up</button><br />
+            job : {{ job }}<input v-model="job" />
         </div>
     </div>
 </template>
@@ -19,6 +20,7 @@
 import { ref, defineComponent } from 'vue';
 import printTest from './composables/printTest';
 import info from './composables/info';
+import cnt from './composables/cnt';
 
 export default defineComponent({
     props: {
@@ -26,16 +28,25 @@ export default defineComponent({
     },
     setup(props: Object) {
         console.log('user:', props);
+        //module
         const { printHello, test } = printTest();
-        const { name, age } = info();
+        let { name, age, job, upAge } = info();
+        let { cntNum, increaseCnt } = cnt();
 
-        let cnt = ref(0); // reactive
+        //created
+        job.value = 'test';
 
-        const increaseCnt = () => {
-            cnt.value++;
+        return {
+            cnt,
+            printHello,
+            test,
+            name,
+            age,
+            job,
+            upAge,
+            cntNum,
+            increaseCnt,
         };
-
-        return { increaseCnt, cnt, printHello, test, name, age };
     },
 });
 </script>

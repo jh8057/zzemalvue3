@@ -19,3 +19,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## graphQL
 - ref : [link](https://www.apollographql.com/docs/intro/platform)
+- generic : [link](https://www.typescriptlang.org/ko/docs/handbook/2/generics.html)
