@@ -1,8 +1,7 @@
-interface MyType {
+interface printTestType {
     test: string;
-    num: number;
     printLog: () => void;
     printHello: () => void;
 }
 
-export { MyType };
+export { printTestType };

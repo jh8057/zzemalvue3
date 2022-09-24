@@ -7,20 +7,27 @@
         <button @click="printHello">hello</button>
         {{ test }}
         <input v-model="test" />
+
+        <div class="info">
+            name : {{ name }}<input v-model="name" /><br />
+            age : {{ age }}<input v-model="age" />
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue';
-import refs from './composables/refs';
+import printTest from './composables/printTest';
+import info from './composables/info';
 
 export default defineComponent({
     props: {
         user: { type: String },
     },
     setup(props: Object) {
-        console.log(props);
-        const { printHello, test } = refs();
+        console.log('user:', props);
+        const { printHello, test } = printTest();
+        const { name, age } = info();
 
         let cnt = ref(0); // reactive
 
@@ -28,7 +35,7 @@ export default defineComponent({
             cnt.value++;
         };
 
-        return { increaseCnt, cnt, printHello, test };
+        return { increaseCnt, cnt, printHello, test, name, age };
     },
 });
 </script>

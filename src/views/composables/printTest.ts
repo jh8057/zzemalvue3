@@ -1,14 +1,17 @@
 import { reactive, toRefs } from 'vue';
-import { MyType } from '@/utils/types';
+// import { printTestType } from '@/utils/types';
+
+interface printTestType {
+    test: string;
+}
 
 export default () => {
-    const state = reactive({
+    const state: printTestType = reactive({
         test: 'This is reactive state',
-        num: 0,
-        printLog: () => {
-            console.log('print');
-        },
     });
+    const printLog = () => {
+        console.log('print');
+    };
 
     const printHello = () => {
         console.log('Hello');
@@ -16,6 +19,7 @@ export default () => {
 
     return {
         ...toRefs(state),
+        printLog,
         printHello,
     };
 };
