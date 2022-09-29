@@ -2,11 +2,11 @@
     <div>
         <h1>Setup</h1>
         <button @click="increaseCnt">cnt</button>
-        {{ cnt }}
+        {{ cntNum }}<br />
+        {{ test }}
+        <input v-model="test" /><br />
 
         <button @click="printHello">hello</button>
-        {{ test }}
-        <input v-model="test" />
 
         <div class="info">
             name : {{ name }}<input v-model="name" /><br />
@@ -37,7 +37,6 @@ export default defineComponent({
         job.value = 'test';
 
         return {
-            cnt,
             printHello,
             test,
             name,
