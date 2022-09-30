@@ -10,14 +10,16 @@
 
         <div class="info">
             name : {{ name }}<input v-model="name" /><br />
-            age : {{ age }}<input v-model="age" /><button @click="upAge">up</button><br />
-            job : {{ job }}<input v-model="job" />
+            age : {{ age }}<button @click="upAge">up</button><br />
+            job : {{ job }}<input v-model="job" /> <br />
+            NickName : {{ nickName }}
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue';
+import { useStore } from 'vuex';
 import printTest from './composables/printTest';
 import info from './composables/info';
 import cnt from './composables/cnt';
@@ -28,10 +30,14 @@ export default defineComponent({
     },
     setup(props: Object) {
         console.log('user:', props);
+
+        const store = useStore();
         //module
         const { printHello, test } = printTest();
         let { name, age, job, upAge } = info();
         let { cntNum, increaseCnt } = cnt();
+
+        let nickName = store.getters.getName;
 
         //created
         job.value = 'test';
@@ -45,6 +51,7 @@ export default defineComponent({
             upAge,
             cntNum,
             increaseCnt,
+            nickName,
         };
     },
 });
