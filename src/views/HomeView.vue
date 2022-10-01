@@ -1,7 +1,10 @@
 <template>
     <div class="home">
         <img alt="Vue logo" src="../assets/logo.png" />
-        <p>Hello</p>
+        <main>
+            <h3>Hello, This is my portfolio site 🥳</h3>
+            <p>Enjoy~!</p>
+        </main>
     </div>
 </template>
 

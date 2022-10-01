@@ -20,3 +20,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## graphQL
 - ref : [link](https://www.apollographql.com/docs/intro/platform)
 - generic : [link](https://www.typescriptlang.org/ko/docs/handbook/2/generics.html)
+- sites: [link](https://velog.io/@berrygood/%EB%94%94%EC%9E%90%EC%9D%B8-%EC%B0%B8%EA%B3%A0-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%AA%A8%EC%9D%8C)
+- 식품 : [link](http://www.foodsafetykorea.go.kr/api/openApiInfo.do?menu_grp=MENU_GRP31&menu_no=661&show_cnt=10&start_idx=1&svc_no=COOKRCP01)
