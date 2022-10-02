@@ -14,6 +14,10 @@
 - Reference : [link](https://www.youtube.com/watch?v=xJAfLdUgdc4&list=PLjcjAqAnHd1EIxV4FSZIiJZvsdrBc1Xho)
 - perpective camera : 가깝고 먼거(깊이)를 화면에서 나타내준다.
 - Ortographic camera : 깊이랑 상관없이 화면에 나타난다.
+
+## blender
+- animation : [link](https://www.youtube.com/watch?v=x5an6UV5r9c)
+- animation2 : [link](https://www.youtube.com/watch?v=GByT8ActvDk&t=189s)
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
