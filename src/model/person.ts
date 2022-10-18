@@ -1,7 +1,9 @@
 class person {
     public name: string;
+    public age: number;
     constructor(parameters: any) {
         this.name = parameters.name;
+        this.age = parameters.age;
     }
 
     get info() {
