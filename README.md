@@ -1,6 +1,7 @@
 # zzemalvue3
 
 -   Try Vue3 + Vuex + Ts + jest + PWA + AWS
+-   Three js + Blender Model
 
 ## TODO
 
